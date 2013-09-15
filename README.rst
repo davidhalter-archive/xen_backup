@@ -21,11 +21,11 @@ Source available `here <https://github.com/davidhalter-archive/xen_backup>`_.
 Configuring a daily backup
 ==========================
 
-To use a backup you can use something like this (same syntax as ``mount``):
+To use a backup you can use something like this (same syntax as ``mount``)::
 
     ./backup.py nfs-export-all backup.company.local:/DataVolume/shares/xenserver/ /media/backup --delete-old
 
-Then add this a `/etc/crontab` line, e.g. like this:
+Then add this a `/etc/crontab` line, e.g. like this::
 
     01 2 * * * root /root/xen_backup/backup.py nfs-export-all backup.company.local:/DataVolume/shares/xenserver/ /media/backup --delete-old
 
@@ -33,6 +33,7 @@ Then add this a `/etc/crontab` line, e.g. like this:
 Configuring NFS on the NAS
 ==========================
 
-You have to configure NFS, to add 
+You have to configure NFS on the NAS, to make it possible for Python script to
+work::
 
     /DataVolume/shares/xenserver xenserver.company.local(rw,sync,no_subtree_check)
